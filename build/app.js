@@ -9,13 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const currencies = document.getElementById('currencies');
+const result = document.getElementById('result');
 const apiKey = 'fc53f67dad7105913284';
 class HTTP {
     static get({ url = '', method = '' }) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, rejects) => {
                 let request = new XMLHttpRequest();
-                request.open(options.method, options.url, true);
+                request.open(method, url, true);
+                request.setRequestHeader("apikey", "Y7fG1N8jRu9kVezwNXuGVgQfsPrQHHkc");
                 request.onload = () => {
                     if (request.status >= 200 && request.status < 300) {
                         resolve(JSON.parse(request.responseText));
@@ -38,22 +40,21 @@ class HTTP {
         });
     }
 }
-const options = {
-    method: 'GET',
-    url: `https://free.currconv.com/api/v7/currencies?apiKey=${apiKey}`
-};
-function getCurrencies() {
+function convert() {
     return __awaiter(this, void 0, void 0, function* () {
-        let cs = yield HTTP.get(options);
-        return Object.values(cs.results);
+        let cs = yield HTTP.get({
+            method: 'GET',
+            url: `https://api.apilayer.com/fixer/convert?base=USD&symbols=EUR,GBP,JPY&amount=5&date=2018-01-01`
+        });
+        console.log(cs);
     });
 }
 function listCurrencies() {
-    getCurrencies().then(data => {
-        console.log(data);
-        for (const key in data) {
-            currencies.innerHTML += `${data[key].currencyName} <br>`;
-        }
+    return __awaiter(this, void 0, void 0, function* () {
+        let cs = yield HTTP.get({
+            method: 'GET',
+            url: `https://api.apilayer.com/fixer/symbols`
+        });
+        console.log(cs.symbols);
     });
 }
-listCurrencies();

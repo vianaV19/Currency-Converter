@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+    width: 920px;
+}
+
+main {
+    width: 90%;
+}
+
+main h1{
+    text-align: center;
+}
