@@ -1,6 +1,6 @@
 const currencies = document.getElementById('currencies') as HTMLElement
 const result = document.getElementById('result') as HTMLElement
-const apiKey: string;//your apiKey
+const apiKey:string;//your apiKey
 
 class HTTP {
     static async get({ url = '', method = '' }) {
