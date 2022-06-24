@@ -9,7 +9,7 @@ class HTTP {
 
             request.open(method, url, true);
 
-            request.setRequestHeader("apikey", "Y7fG1N8jRu9kVezwNXuGVgQfsPrQHHkc")
+            request.setRequestHeader("apikey", apiKey)
 
             request.onload = () => {
                 if (request.status >= 200 && request.status < 300) {
