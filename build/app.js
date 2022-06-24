@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const currencies = document.getElementById('currencies');
 const result = document.getElementById('result');
-const apiKey = 'fc53f67dad7105913284';
+const apiKey;
 class HTTP {
     static get({ url = '', method = '' }) {
         return __awaiter(this, void 0, void 0, function* () {
