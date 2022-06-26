@@ -10,16 +10,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const currencies = document.getElementById('currencies');
 const result = document.getElementById('result');
-const apiKey = 'fc53f67dad7105913284';
+const selectCurrencyFrom = document.getElementById('select-currency-from');
+const selectCurrencyTo = document.getElementById('select-currency-to');
+const amount = document.getElementById('amount');
+const apiKey = "qRzaz1ZwZAXUA5nZ5WCd3nVIavGTbZEv";
 class HTTP {
-    static get({ url = '', method = '' }) {
+    static get({ url = '', method = '', apiKey = null }) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, rejects) => {
                 let request = new XMLHttpRequest();
                 request.open(method, url, true);
-                request.setRequestHeader("apikey", "Y7fG1N8jRu9kVezwNXuGVgQfsPrQHHkc");
+                if (apiKey)
+                    request.setRequestHeader("apikey", apiKey);
                 request.onload = () => {
                     if (request.status >= 200 && request.status < 300) {
+                        console.log(`GET ${url}: Success!`);
                         resolve(JSON.parse(request.responseText));
                     }
                     else {
@@ -40,21 +45,43 @@ class HTTP {
         });
     }
 }
+// loadSymbols();
+//currency convert function
 function convert() {
     return __awaiter(this, void 0, void 0, function* () {
-        let cs = yield HTTP.get({
-            method: 'GET',
-            url: `https://api.apilayer.com/fixer/convert?base=USD&symbols=EUR,GBP,JPY&amount=5&date=2018-01-01`
-        });
-        console.log(cs);
+        result.textContent = '3.232';
+        //     let cs:any = await HTTP.get({
+        //         method: 'GET',
+        //         url: `https://api.apilayer.com/currency_data/convert?from=${selectCurrencyFrom.value}&to=${selectCurrencyTo.value}&amount=${parseFloat(amount.value)}`,
+        //         apiKey: apiKey
+        //     });
+        //     result.textContent = cs.result
+        // }
     });
 }
-function listCurrencies() {
+function loadSymbols() {
     return __awaiter(this, void 0, void 0, function* () {
+        //XMLHTTPRequest all currencies available
         let cs = yield HTTP.get({
             method: 'GET',
-            url: `https://api.apilayer.com/fixer/symbols`
+            url: `https://api.apilayer.com/currency_data/list`,
+            apiKey: apiKey
         });
-        console.log(cs.symbols);
+        console.log(cs);
+        //setting currencies as option
+        let currenciesArr = Object.keys(cs.currencies);
+        //appeding currency option element to select
+        currenciesArr.forEach(e => {
+            let option = document.createElement("option");
+            option.value = e;
+            option.textContent = e;
+            selectCurrencyFrom.appendChild(option);
+        });
+        currenciesArr.forEach(e => {
+            let option = document.createElement("option");
+            option.value = e;
+            option.textContent = e;
+            selectCurrencyTo.appendChild(option);
+        });
     });
 }

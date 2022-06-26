@@ -1,6 +1,7 @@
 {
   "name": "my-project",
   "source": "build/index.html",
+  "type": "module",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
@@ -11,6 +12,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "node-fetch": "^3.2.6"
   }
 }

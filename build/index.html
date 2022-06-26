@@ -27,21 +27,33 @@
         <div class="container">
             <div class="row d-flex justify-content-around">
                 <div class="col-md-4">
-                    <div id="currencyOrigin">
-                        <input name="amount" class="form-control" type="number" placeholder="Amount...">
+                    <div class="d-flex flex-column" id="currency-container">
+                        <input id="amount" class="form-control" type="number" placeholder="Amount...">
 
-                        <select id="currencyToBeConverted">
-                            <option value="">--Select--</option>
-                            <option value="EUR">USD</option>
-                            <option value="EUR">EUR</option>
-                        </select>
-                        <br>
+                        <div>
+                            <label for="">From:</label>
+                            <select id="select-currency-from">
+                                <option value="">--Select--</option>
+                                <option value="USD">USD</option>
+                            </select>
+
+                        </div>
+
+                        <div>
+                            <label for="">To:</label>
+                            <select id="select-currency-to">
+                                <option value="">--Select--</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+
                         <button onclick="convert()" class="btn btn-primary">Convert</button>
+
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <div id="result">
+                    <div id="result-container">
                         <h3>Result</h3>
                         <p>Value Converted: <span id="result">0.00</span></p>
                     </div>

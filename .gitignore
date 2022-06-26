@@ -1,0 +1,9 @@
+#ignoring some unecessary files
+
+.parcel-cache
+
+dist
+
+node_modules
+
+
