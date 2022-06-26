@@ -1,11 +1,15 @@
 const currencies = document.getElementById('currencies') as HTMLElement
 const result = document.getElementById('result') as HTMLElement
+<<<<<<< HEAD
 const selectCurrencyFrom = document.getElementById('select-currency-from') as HTMLSelectElement
 const selectCurrencyTo = document.getElementById('select-currency-to') as HTMLSelectElement
 const amount = document.getElementById('amount') as HTMLInputElement
 
-const apiKey: string = "qRzaz1ZwZAXUA5nZ5WCd3nVIavGTbZEv"
+const apiKey:string ;
 
+=======
+const apiKey:string;//your apiKey
+>>>>>>> 02ebe373453b28f5125259ba19fff66946ade6fb
 
 class HTTP {
     static async get({ url = '', method = '', apiKey = null as any }) {
@@ -14,8 +18,12 @@ class HTTP {
 
             request.open(method, url, true);
 
+<<<<<<< HEAD
             if (apiKey) request.setRequestHeader("apikey", apiKey)
 
+=======
+            request.setRequestHeader("apikey", apiKey)
+>>>>>>> 02ebe373453b28f5125259ba19fff66946ade6fb
 
             request.onload = () => {
                 if (request.status >= 200 && request.status < 300) {

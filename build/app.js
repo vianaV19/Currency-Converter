@@ -10,18 +10,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const currencies = document.getElementById('currencies');
 const result = document.getElementById('result');
+<<<<<<< HEAD
 const selectCurrencyFrom = document.getElementById('select-currency-from');
 const selectCurrencyTo = document.getElementById('select-currency-to');
 const amount = document.getElementById('amount');
-const apiKey = "qRzaz1ZwZAXUA5nZ5WCd3nVIavGTbZEv";
+const apiKey;
+=======
+const apiKey;
+>>>>>>> 02ebe373453b28f5125259ba19fff66946ade6fb
 class HTTP {
     static get({ url = '', method = '', apiKey = null }) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, rejects) => {
                 let request = new XMLHttpRequest();
                 request.open(method, url, true);
+<<<<<<< HEAD
                 if (apiKey)
                     request.setRequestHeader("apikey", apiKey);
+=======
+                request.setRequestHeader("apikey", apiKey);
+>>>>>>> 02ebe373453b28f5125259ba19fff66946ade6fb
                 request.onload = () => {
                     if (request.status >= 200 && request.status < 300) {
                         console.log(`GET ${url}: Success!`);
