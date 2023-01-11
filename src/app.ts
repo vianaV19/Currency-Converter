@@ -10,6 +10,7 @@ const BASE_URL: string = 'https://api.apilayer.com/currency_data'
 const convertBtn = document.getElementById('convertBtn') as HTMLButtonElement
 const symbol_from = document.getElementById('symbol-from') as HTMLElement
 const symbol_to = document.getElementById('symbol-to') as HTMLElement
+const amount_value = document.getElementById('amount-value') as HTMLElement
 
 setDropdownSymbols();
 
@@ -25,8 +26,29 @@ selectCurrencyTo.addEventListener('change', () => {
     update();
 })
 
+amount.addEventListener('keyup', () => {
+    update();
+})
+
 function update(){
-    symbol_from.innerHTML = selectCurrencyFrom.value
+    let cf = selectCurrencyFrom.value
+    let ct = selectCurrencyTo.value
+    let cifra_f, cifra_t;
+
+    switch(cf) {
+        case 'BRL':
+            cifra_f = "R$"
+    } 
+    
+    switch(ct){
+        case 'USD':
+            cifra_t = "$"
+    }
+
+    symbol_from.innerHTML = cf == "" ? "NULL" : cf + ": " + cifra_f
+    symbol_to.innerHTML = ct == "" ? "NULL" :  ct + ": " + cifra_t
+    
+    amount_value.innerHTML = amount.value
 }
 
 
@@ -39,9 +61,7 @@ async function convert() {
         apiKey: apiKey
     });
 
-    let symbol = selectCurrencyTo.value;
-
-    result.textContent = symbol + " " + cs.result
+    result.textContent = cs.result
 
 }
 

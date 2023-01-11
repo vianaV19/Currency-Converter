@@ -31,26 +31,26 @@
             <h1 class="text-center">Currency Conversor</h1>
         </div>
 
-        <div class="row d-flex justify-content-around">
+        <div class="row">
             <div class="col-md-4">
-                <div class="d-flex flex-column gap-4" id="currency-container">
+                <div class="d-flex flex-column gap-4" >
                     <input id="amount" type="text" placeholder="Amount...">
 
-                    <div>
+                    <div class="select-wrapper">
                         <select id="select-currency-from">
                             <option value="">--Select--</option>
+                            <option value="BRL">BRL</option>
                         </select>
-
                     </div>
 
                     <div>
                         <label for="">To:</label>
                         <select id="select-currency-to">
                             <option value="">--Select--</option>
+                            <option value="USD">USD</option>
+                        
                         </select>
                     </div>
-
-                    <!-- <button id="convertBtn" class="btn btn-primary">Convert</button> -->
 
                 </div>
             </div>
@@ -59,11 +59,10 @@
             </div>
 
             <div class="col-md-4">
-                <div id="result-container">
+                <div>
                     <h3>Currency Converted</h3>
-                    <p><span id="symbol-from">NULL</span>: <span id="value-from">0.00</span></p>
-                    <p><span id="symbol-to">NULL</span>: <span id="result">0.00</span></p>
-
+                    <p><span id="symbol-from">NULL</span> <span id="amount-value">0.00</span></p>
+                    <p><span id="symbol-to">NULL</span> <span id="result">0.00</span></p>
                 </div>
             </div>
         </div>
