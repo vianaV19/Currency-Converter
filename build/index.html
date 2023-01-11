@@ -15,77 +15,61 @@
 
     <script type="module" src="app.js"></script>
 
-
-    <link rel="stylesheet" href="style.css">
-
     <!-- BOOTSTRAP APP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body class="mx-auto d-flex justify-content-center">
+<body>
+    <div class="container ">
+        <div id="header" class="py-5">
+            <img class="img-fluid mx-auto d-block" width="200" src="../assets/imgs/logo.png" alt="">
+            <h1 class="text-center">Currency Conversor</h1>
+        </div>
 
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand">Currency Converter</a>
-                <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="my-nav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Item 1 <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Item 2</a>
-                        </li>
-                    </ul>
+        <div class="row d-flex justify-content-around">
+            <div class="col-md-4">
+                <div class="d-flex flex-column gap-4" id="currency-container">
+                    <input id="amount" type="text" placeholder="Amount...">
+
+                    <div>
+                        <select id="select-currency-from">
+                            <option value="">--Select--</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <label for="">To:</label>
+                        <select id="select-currency-to">
+                            <option value="">--Select--</option>
+                        </select>
+                    </div>
+
+                    <!-- <button id="convertBtn" class="btn btn-primary">Convert</button> -->
+
                 </div>
             </div>
-        </nav>
-    </header>
+            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                <button id="convertBtn"></button>
+            </div>
 
-    <main>
-        <h1>Currency Conversor</h1>
-        <div class="container">
-            <div class="row d-flex justify-content-around">
-                <div class="col-md-4">
-                    <div class="d-flex flex-column" id="currency-container">
-                        <input id="amount" class="form-control" type="number" placeholder="Amount...">
+            <div class="col-md-4">
+                <div id="result-container">
+                    <h3>Currency Converted</h3>
+                    <p><span id="symbol-from">NULL</span>: <span id="value-from">0.00</span></p>
+                    <p><span id="symbol-to">NULL</span>: <span id="result">0.00</span></p>
 
-                        <div>
-                            <label for="">From:</label>
-                            <select id="select-currency-from">
-                                <option value="">--Select--</option>
-                            </select>
-
-                        </div>
-
-                        <div>
-                            <label for="">To:</label>
-                            <select id="select-currency-to">
-                                <option value="">--Select--</option>
-                            </select>
-                        </div>
-
-                        <button id="convertBtn"class="btn btn-primary">Convert</button>
-
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div id="result-container">
-                        <h3>Result</h3>
-                        <p>Value Converted: <span id="result">0.00</span></p>
-                    </div>
                 </div>
             </div>
         </div>
 
-    </main>
+    </div>
+
 
     <!-- BOOTSTRAP SCRIPT AND POPPER.JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"

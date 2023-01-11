@@ -8,12 +8,26 @@ const amount = document.getElementById('amount') as HTMLInputElement
 const apiKey: string = "qRzaz1ZwZAXUA5nZ5WCd3nVIavGTbZEv";
 const BASE_URL: string = 'https://api.apilayer.com/currency_data'
 const convertBtn = document.getElementById('convertBtn') as HTMLButtonElement
+const symbol_from = document.getElementById('symbol-from') as HTMLElement
+const symbol_to = document.getElementById('symbol-to') as HTMLElement
 
 setDropdownSymbols();
 
 convertBtn.addEventListener('click', () => {
     convert();
 })
+
+selectCurrencyFrom.addEventListener('change', () => {
+    update();
+})
+
+selectCurrencyTo.addEventListener('change', () => {
+    update();
+})
+
+function update(){
+    symbol_from.innerHTML = selectCurrencyFrom.value
+}
 
 
 //currency convert function

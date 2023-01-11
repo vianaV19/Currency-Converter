@@ -15,10 +15,21 @@ const amount = document.getElementById('amount');
 const apiKey = "qRzaz1ZwZAXUA5nZ5WCd3nVIavGTbZEv";
 const BASE_URL = 'https://api.apilayer.com/currency_data';
 const convertBtn = document.getElementById('convertBtn');
+const symbol_from = document.getElementById('symbol-from');
+const symbol_to = document.getElementById('symbol-to');
 setDropdownSymbols();
 convertBtn.addEventListener('click', () => {
     convert();
 });
+selectCurrencyFrom.addEventListener('change', () => {
+    update();
+});
+selectCurrencyTo.addEventListener('change', () => {
+    update();
+});
+function update() {
+    symbol_from.innerHTML = selectCurrencyFrom.value;
+}
 //currency convert function
 function convert() {
     return __awaiter(this, void 0, void 0, function* () {

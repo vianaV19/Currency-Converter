@@ -1,12 +1,48 @@
+/* FONT DONGLE */
+@import url(//db.onlinewebfonts.com/c/262244c5d98242ce2904bb5054eaf4dc?family=Dongle);
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-    height: 100vh;
-    width: 920px;
+    background: radial-gradient(circle, #000040 90%, #85FBFF 150%) no-repeat;
+    color: white
 }
 
-main {
-    width: 90%;
-}
 
-main h1{
+main h1 {
     text-align: center;
+}
+
+#amount {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#amount:hover,
+#amount:focus {
+    outline: none;
+}
+
+#convertBtn {
+    background: url(../assets/imgs/btn-back.png) no-repeat center;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    border: none;
+    transition: all 0.5s ;
+}
+
+#convertBtn:hover{
+    transform: rotate(-180deg) scale(1.1);
 }
